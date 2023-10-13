@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { InputStyle, Label } from './Filter.styled';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'redux/store';
 
-const Filter = ({ onFilterChange }) => {
+export const onFilterChange = value => {
+  return {
+    type: 'FILTER_CHANGE',
+    payload: value,
+  };
+};
+
+const Filter = () => {
+  const dispatch = useDispatch();
+  // const contacts = useSelector(state => state.contacts);
   const [localFilter, setLocalFilter] = useState('');
 
   const handleInputChange = event => {
     const { value } = event.target;
     setLocalFilter(value);
-    onFilterChange(value);
+    dispatch(setFilter(value));
   };
 
   return (

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from './store';
+import { addContact } from '../../redux/store';
 import { nanoid } from 'nanoid';
 import { Form, Label, ButtonStyle } from './ContactsForm.styled';
-import { InputStyle } from './Filter.styled';
+import { InputStyle } from 'components/Filter/Filter.styled';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
