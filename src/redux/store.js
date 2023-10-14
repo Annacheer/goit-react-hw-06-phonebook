@@ -1,5 +1,5 @@
 import { configureStore, createSlice, combineReducers } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
+import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const filterSlice = createSlice({
@@ -44,4 +44,6 @@ const store = configureStore({
   reducer: persistedReducer,
 });
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };
